@@ -1,0 +1,17 @@
+{
+  "name": "traffic-mirror-backend",
+  "version": "1.0.0",
+  "description": "Microservices Traffic Shadowing and Mirroring System - backend (gateway + primary/shadow mock services)",
+  "main": "server.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "cors": "^2.8.5",
+    "axios": "^1.7.2",
+    "uuid": "^9.0.1"
+  }
+}
