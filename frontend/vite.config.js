@@ -6,8 +6,8 @@ export default defineConfig({
 
   server: {
     port: 5173,
+    host: "0.0.0.0",
     proxy: {
-      // Forward dashboard API calls to the gateway during local development
       "/api": {
         target: "http://localhost:4000",
         changeOrigin: true
@@ -16,6 +16,10 @@ export default defineConfig({
   },
 
   preview: {
-    allowedHosts: ["traffic-mirror-frontend.onrender.com"]
+    host: "0.0.0.0",
+    port: 4173,
+    allowedHosts: [
+      "traffic-mirror-frontend.onrender.com"
+    ]
   }
 });
