@@ -3,14 +3,19 @@ import react from "@vitejs/plugin-react";
 
 export default defineConfig({
   plugins: [react()],
+
   server: {
     port: 5173,
     proxy: {
-      // Forward dashboard API calls straight to the gateway during dev
+      // Forward dashboard API calls to the gateway during local development
       "/api": {
         target: "http://localhost:4000",
         changeOrigin: true
       }
     }
+  },
+
+  preview: {
+    allowedHosts: ["traffic-mirror-frontend.onrender.com"]
   }
 });
