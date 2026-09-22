@@ -12,26 +12,27 @@ async function post(path, body) {
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify(body || {})
   });
+
   if (!res.ok) throw new Error(`POST ${path} failed: ${res.status}`);
   return res.json();
 }
 
 export function fetchStats() {
-  return get("/stats");
+  return get("/api/stats");
 }
 
 export function fetchLogs(limit = 50) {
-  return get(`/logs?limit=${limit}`);
+  return get(`/api/logs?limit=${limit}`);
 }
 
 export function fetchServiceHealth() {
-  return get("/services");
+  return get("/api/services");
 }
 
 export function clearLogs() {
-  return post("/logs/clear");
+  return post("/api/logs/clear");
 }
 
 export function simulateTraffic(count = 10) {
-  return post("/simulate", { count });
+  return post("/api/simulate", { count });
 }
